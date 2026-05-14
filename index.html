@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>YAS Networks Guest Wi‑Fi</title>
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:Arial,sans-serif;
+}
+
+body{
+  height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  background:
+    linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.45)),
+    url('background-main.png') center/cover no-repeat;
+  color:white;
+}
+
+.container{
+  width:90%;
+  max-width:500px;
+  background:rgba(10,10,10,.72);
+  border:1px solid rgba(255,255,255,.08);
+  backdrop-filter:blur(10px);
+  border-radius:24px;
+  padding:40px;
+  text-align:center;
+  box-shadow:0 10px 40px rgba(0,0,0,.45);
+}
+
+.logo{
+  width:260px;
+  margin-bottom:30px;
+}
+
+h1{
+  font-size:36px;
+  margin-bottom:14px;
+}
+
+p{
+  color:#dddddd;
+  line-height:1.7;
+  margin-bottom:26px;
+}
+
+.terms{
+  margin-bottom:30px;
+  color:#d7d7d7;
+}
+
+.terms input{
+  margin-right:8px;
+}
+
+.terms a{
+  color:#f5c35b;
+  text-decoration:none;
+}
+
+.connect-btn{
+  width:100%;
+  border:none;
+  border-radius:14px;
+  padding:16px;
+  background:#e6b655;
+  color:black;
+  font-size:18px;
+  font-weight:bold;
+  cursor:pointer;
+}
+
+.footer{
+  margin-top:18px;
+  color:#aaaaaa;
+  font-size:13px;
+}
+
+.terms-page{
+  display:none;
+}
+
+.back-btn{
+  margin-top:24px;
+  width:100%;
+  border:none;
+  border-radius:14px;
+  padding:16px;
+  background:#444;
+  color:white;
+  font-size:16px;
+  cursor:pointer;
+}
+
+ul{
+  text-align:left;
+  margin-top:18px;
+  line-height:1.9;
+  color:#e1e1e1;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container" id="mainPage">
+
+<img src="yasnetworks-logo.png" class="logo">
+
+<h1>Welcome to YAS Networks Wi‑Fi</h1>
+
+<p>
+Stay connected. Enjoy seamless and secure internet access.
+</p>
+
+<div class="terms">
+<label>
+<input type="checkbox" id="agree">
+I agree to the
+<a href="#" onclick="showTerms()">Terms and Conditions</a>
+</label>
+</div>
+
+<button class="connect-btn" onclick="connectWifi()">
+Connect
+</button>
+
+<div class="footer">
+Your privacy and security are important to us.
+</div>
+
+</div>
+
+<div class="container terms-page" id="termsPage">
+
+<img src="yasnetworks-logo.png" class="logo">
+
+<h1>Terms and Conditions</h1>
+
+<ul>
+<li>Use of this Wi‑Fi service must comply with all local laws and regulations.</li>
+<li>Unauthorized access, hacking, or illegal activity is strictly prohibited.</li>
+<li>YAS Networks is not responsible for personal data transmitted over this network.</li>
+<li>Network availability and speed are not guaranteed.</li>
+<li>Continued use of the service indicates acceptance of these terms.</li>
+</ul>
+
+<button class="back-btn" onclick="goBack()">
+Back
+</button>
+
+</div>
+
+<script>
+
+function showTerms(){
+  event.preventDefault();
+  document.getElementById('mainPage').style.display='none';
+  document.getElementById('termsPage').style.display='block';
+}
+
+function goBack(){
+  document.getElementById('termsPage').style.display='none';
+  document.getElementById('mainPage').style.display='block';
+}
+
+function connectWifi(){
+
+  const agree=document.getElementById('agree');
+
+  if(!agree.checked){
+    alert('Please agree to the Terms and Conditions.');
+    return;
+  }
+
+  const urlParams = new URLSearchParams(window.location.search);
+  const baseGrantUrl = urlParams.get('base_grant_url');
+  const userContinueUrl = urlParams.get('user_continue_url');
+
+  if(baseGrantUrl){
+    window.location.href =
+      `${baseGrantUrl}?continue_url=${encodeURIComponent(userContinueUrl || 'https://google.com')}`;
+  }else{
+    alert('Meraki redirect parameters not detected.');
+  }
+
+}
+
+</script>
+
+</body>
+</html>
