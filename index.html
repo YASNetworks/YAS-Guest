@@ -3,16 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>YAS Networks Wi-Fi</title>
+<title>YAS Networks Wi‑Fi</title>
 
 <style>
 html, body {
   margin: 0;
   padding: 0;
   background: #02060c;
-  width: 100%;
-  min-height: 100%;
-  font-family: Arial, sans-serif;
 }
 
 .page {
@@ -26,36 +23,38 @@ html, body {
   display: block;
 }
 
-/* Empty checkbox clickable area */
+/* Real clickable checkbox */
 #agree {
   position: absolute;
-  left: 29.2%;
-  top: 51.2%;
-  width: 24px;
-  height: 24px;
-  opacity: 1;
+  left: 29%;
+  top: 51.1%;
+  width: 26px;
+  height: 26px;
   cursor: pointer;
   accent-color: #f3c54b;
+  z-index: 10;
 }
 
-/* Terms link clickable area */
+/* Terms link */
 .terms-link {
   position: absolute;
-  left: 48%;
-  top: 51.4%;
-  width: 27%;
-  height: 3.5%;
+  left: 47%;
+  top: 51%;
+  width: 30%;
+  height: 4%;
   display: block;
+  z-index: 9;
 }
 
-/* Connect button clickable area */
+/* Connect button */
 .connect-link {
   position: absolute;
   left: 27%;
-  top: 56.5%;
+  top: 56.3%;
   width: 46%;
-  height: 6.7%;
+  height: 6.8%;
   display: block;
+  z-index: 9;
 }
 </style>
 </head>
@@ -63,25 +62,33 @@ html, body {
 <body>
 
 <div class="page">
-  <img src="Page%201.png" class="bg" alt="YAS Networks Wi-Fi">
 
-  <input type="checkbox" id="agree">
+<img src="Page%201.png" class="bg" alt="YAS Networks Wi‑Fi">
 
-  <a href="terms.html" class="terms-link" aria-label="Terms and Conditions"></a>
+<input type="checkbox" id="agree">
 
-  <a href="#" class="connect-link" aria-label="Connect" onclick="connectNow(event)"></a>
+<a href="terms.html" class="terms-link" aria-label="Terms and Conditions"></a>
+
+<a href="#" class="connect-link" aria-label="Connect" onclick="connectNow(event)"></a>
+
 </div>
 
 <script>
-function connectNow(event) {
+function connectNow(event){
+
   event.preventDefault();
 
-  if (!document.getElementById('agree').checked) {
+  if(!document.getElementById('agree').checked){
     alert('Please accept the Terms and Conditions.');
     return;
   }
 
-  window.location.href = 'https://yasnetworks.com';
+  /*
+    This sends the user to the Meraki authorization URL first.
+    After Meraki authorizes internet access, the user can be redirected by the Meraki splash flow.
+  */
+  window.location.href = "$MERAKI:AUTH_AND_CONTINUE_URL$";
+
 }
 </script>
 
