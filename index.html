@@ -48,8 +48,8 @@ color:#f3c54b;
 font-size:20px;
 font-weight:bold;
 position:absolute;
-left:5px;
-top:-6px;
+left:4px;
+top:-1px;
 }
 
 .terms-link{
@@ -85,26 +85,9 @@ z-index:900;
 
 <a href="terms.html" class="terms-link"></a>
 
-<a href="#" class="connect-link" onclick="connectNow(event)"></a>
+<a href="$MERAKI:AUTH_AND_CONTINUE_URL$" class="connect-link"></a>
 
 </div>
-
-<script>
-
-function connectNow(event){
-
-event.preventDefault();
-
-if(!document.getElementById('agree').checked){
-alert('Please accept the Terms and Conditions.');
-return;
-}
-
-window.location.href = "$MERAKI:AUTH_AND_CONTINUE_URL$";
-
-}
-
-</script>
 
 </body>
 </html>
