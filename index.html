@@ -6,7 +6,6 @@
 <title>YAS Networks Wi-Fi</title>
 
 <style>
-
 html,body{
 margin:0;
 padding:0;
@@ -24,21 +23,10 @@ width:100%;
 display:block;
 }
 
-.hide-old-box{
-position:absolute;
-left:26.8%;
-top:50.2%;
-width:52px;
-height:52px;
-background:#000000;
-z-index:950;
-border-radius:8px;
-}
-
 .checkbox{
 position:absolute;
-left:28.8%;
-top:51%;
+left:29%;
+top:50.9%;
 width:24px;
 height:24px;
 z-index:1000;
@@ -85,7 +73,6 @@ height:7%;
 display:block;
 z-index:900;
 }
-
 </style>
 </head>
 
@@ -94,8 +81,6 @@ z-index:900;
 <div class="page">
 
 <img src="Page 1.png" class="bg">
-
-<div class="hide-old-box"></div>
 
 <input type="checkbox" class="checkbox" id="agree">
 
@@ -106,9 +91,7 @@ z-index:900;
 </div>
 
 <script>
-
 function connectNow(event){
-
 event.preventDefault();
 
 if(!document.getElementById('agree').checked){
@@ -117,9 +100,7 @@ return;
 }
 
 window.location.href='https://yasnetworks.com';
-
 }
-
 </script>
 
 </body>
