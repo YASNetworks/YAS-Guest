@@ -6,6 +6,7 @@
 <title>YAS Networks Wi-Fi</title>
 
 <style>
+
 html,body{
 margin:0;
 padding:0;
@@ -70,6 +71,7 @@ height:7%;
 display:block;
 z-index:900;
 }
+
 </style>
 </head>
 
@@ -88,7 +90,9 @@ z-index:900;
 </div>
 
 <script>
+
 function connectNow(event){
+
 event.preventDefault();
 
 if(!document.getElementById('agree').checked){
@@ -96,8 +100,10 @@ alert('Please accept the Terms and Conditions.');
 return;
 }
 
-window.location.href='$MERAKI:AUTH_AND_CONTINUE_URL$&continue_url=https://yasnetworks.com';
+window.location.href = "https://n156.network-auth.com/splash/auth?token=$MERAKI:AUTH_TOKEN$";
+
 }
+
 </script>
 
 </body>
