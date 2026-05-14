@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>YAS Networks Wi-Fi</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="page home-page">
+    <section class="card home-card">
+      <div class="brand brand-large">
+        <img src="background.png" alt="YAS Networks design reference" class="hidden-reference" />
+        <div class="logo-mark">✺</div>
+        <div class="brand-text">YAS NETWORKS</div>
+      </div>
+
+      <div class="home-content">
+        <h1>Welcome to YAS Networks Wi‑Fi</h1>
+        <p>Stay connected. Enjoy seamless and secure internet access.</p>
+
+        <label class="agree-row">
+          <input id="agree" type="checkbox" />
+          <span>I agree to the <a href="terms.html">Terms and Conditions</a></span>
+        </label>
+
+        <button id="connectBtn" class="gold-btn" type="button">Connect</button>
+
+        <div class="privacy-note">🔒 Your privacy and security are important to us.</div>
+      </div>
+
+      <footer class="footer-info">
+        <span>◎ www.yasnetworks.com</span>
+        <span class="divider"></span>
+        <span>✉ info@yasnetworks.com</span>
+      </footer>
+    </section>
+  </main>
+
+  <script>
+    const agree = document.getElementById('agree');
+    const connectBtn = document.getElementById('connectBtn');
+
+    connectBtn.addEventListener('click', function () {
+      if (!agree.checked) {
+        alert('Please agree to the Terms and Conditions before connecting.');
+        return;
+      }
+
+      const params = new URLSearchParams(window.location.search);
+      const loginUrl = params.get('login_url') || params.get('login_url_base') || params.get('continue_url');
+
+      if (loginUrl) {
+        window.location.href = loginUrl;
+      } else {
+        alert('This page must be opened through the Meraki splash redirect.');
+      }
+    });
+  </script>
+</body>
+</html>
