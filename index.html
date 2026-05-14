@@ -24,7 +24,17 @@ width:100%;
 display:block;
 }
 
-/* CHECKBOX */
+.hide-old-box{
+position:absolute;
+left:27.5%;
+top:50.3%;
+width:40px;
+height:40px;
+background:#000000;
+z-index:900;
+border-radius:6px;
+}
+
 .checkbox{
 position:absolute;
 left:28.8%;
@@ -47,18 +57,6 @@ align-items:center;
 justify-content:center;
 }
 
-/* cover old box inside image */
-.checkbox::after{
-content:"";
-position:absolute;
-left:-10px;
-top:-10px;
-width:40px;
-height:40px;
-background:#000000;
-z-index:-1;
-}
-
 .checkbox:checked::before{
 content:"✓";
 color:#f3c54b;
@@ -67,7 +65,17 @@ font-weight:bold;
 line-height:1;
 position:absolute;
 }
-/* CONNECT BUTTON */
+
+.terms-link{
+position:absolute;
+left:47%;
+top:51%;
+width:28%;
+height:4%;
+display:block;
+z-index:900;
+}
+
 .connect-link{
 position:absolute;
 left:27%;
@@ -82,6 +90,8 @@ z-index:900;
 </head>
 
 <body>
+
+<div class="page">
 
 <img src="Page 1.png" class="bg">
 
