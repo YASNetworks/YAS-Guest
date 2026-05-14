@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>YAS Networks Wi-Fi</title>
+
+<style>
+html, body {
+  margin: 0;
+  padding: 0;
+  background: #02060c;
+  width: 100%;
+  min-height: 100%;
+  font-family: Arial, sans-serif;
+}
+
+.page {
+  position: relative;
+  width: min(100vw, 768px);
+  margin: 0 auto;
+}
+
+.bg {
+  width: 100%;
+  display: block;
+}
+
+/* Empty checkbox clickable area */
+#agree {
+  position: absolute;
+  left: 29.2%;
+  top: 51.2%;
+  width: 4%;
+  height: 3.2%;
+  opacity: 0;
+  cursor: pointer;
+}
+
+/* Terms link clickable area */
+.terms-link {
+  position: absolute;
+  left: 48%;
+  top: 51.4%;
+  width: 27%;
+  height: 3.5%;
+  display: block;
+}
+
+/* Connect button clickable area */
+.connect-link {
+  position: absolute;
+  left: 27%;
+  top: 56.5%;
+  width: 46%;
+  height: 6.7%;
+  display: block;
+}
+</style>
+</head>
+
+<body>
+
+<div class="page">
+  <img src="Page%201.png" class="bg" alt="YAS Networks Wi-Fi">
+
+  <input type="checkbox" id="agree">
+
+  <a href="terms.html" class="terms-link" aria-label="Terms and Conditions"></a>
+
+  <a href="#" class="connect-link" aria-label="Connect" onclick="connectNow(event)"></a>
+</div>
+
+<script>
+function connectNow(event) {
+  event.preventDefault();
+
+  if (!document.getElementById('agree').checked) {
+    alert('Please accept the Terms and Conditions.');
+    return;
+  }
+
+  window.location.href = 'https://yasnetworks.com';
+}
+</script>
+
+</body>
+</html>
