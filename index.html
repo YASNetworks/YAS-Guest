@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>YAS Networks Wi-Fi</title>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="page-card home-card">
+    <section class="logo-row">
+      <div class="logo-mark">✺</div>
+      <div class="logo-text">YAS NETWORKS</div>
+    </section>
+
+    <section class="welcome-box">
+      <h1>Welcome to YAS Networks Wi-Fi</h1>
+      <p>Stay connected. Enjoy seamless and secure internet access.</p>
+
+      <label class="agree-row">
+        <input id="agree" type="checkbox" />
+        <span>I agree to the <a href="terms.html">Terms and Conditions</a></span>
+      </label>
+
+      <button class="gold-btn" onclick="connectWifi()">Connect</button>
+      <p class="privacy">🔒 Your privacy and security are important to us.</p>
+    </section>
+
+    <footer class="footer-row">
+      <span>◎ www.yasnetworks.com</span>
+      <span>|</span>
+      <span>✉ info@yasnetworks.com</span>
+    </footer>
+  </main>
+
+<script>
+function connectWifi() {
+  const agree = document.getElementById('agree');
+  if (!agree.checked) {
+    alert('Please accept the Terms and Conditions.');
+    return;
+  }
+  window.location.href = '$MERAKI:AUTH_AND_CONTINUE_URL$';
+}
+</script>
+</body>
+</html>
