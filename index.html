@@ -3,60 +3,61 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>YAS Networks Wi‑Fi</title>
+<title>YAS Networks Wi-Fi</title>
 
 <style>
-html, body {
-  margin: 0;
-  padding: 0;
-  background: #02060c;
+
+html,body{
+margin:0;
+padding:0;
+background:#02060c;
 }
 
-.page {
-  position: relative;
-  width: min(100vw, 768px);
-  margin: 0 auto;
+.page{
+position:relative;
+width:min(100vw,768px);
+margin:auto;
 }
 
-.bg {
-  width: 100%;
-  display: block;
-  pointer-events: none;
+.bg{
+width:100%;
+display:block;
 }
 
-/* Real clickable checkbox */
-#agree {
-  position: absolute;
-  left: 28.8%;
-  top: 51.1%;
-  width: 26px;
-  height: 26px;
-  cursor: pointer;
-  accent-color: #f3c54b;
-  z-index: 999;
+/* CHECKBOX */
+.checkbox{
+position:absolute;
+left:28.8%;
+top:51%;
+width:30px;
+height:30px;
+z-index:1000;
+cursor:pointer;
+accent-color:#f3c54b;
 }
 
-/* Terms link */
-.terms-link {
-  position: absolute;
-  left: 47%;
-  top: 51%;
-  width: 30%;
-  height: 4%;
-  display: block;
-  z-index: 9;
+/* TERMS LINK */
+.terms-link{
+position:absolute;
+left:47%;
+top:51%;
+width:28%;
+height:4%;
+display:block;
+z-index:900;
 }
 
-/* Connect button */
-.connect-link {
-  position: absolute;
-  left: 27%;
-  top: 56.3%;
-  width: 46%;
-  height: 6.8%;
-  display: block;
-  z-index: 9;
+/* CONNECT BUTTON */
+.connect-link{
+position:absolute;
+left:27%;
+top:56%;
+width:46%;
+height:7%;
+display:block;
+z-index:900;
 }
+
 </style>
 </head>
 
@@ -64,33 +65,31 @@ html, body {
 
 <div class="page">
 
-<img src="Page%201.png" class="bg" alt="YAS Networks Wi‑Fi">
+<img src="Page 1.png" class="bg">
 
-<input type="checkbox" id="agree">
+<input type="checkbox" class="checkbox" id="agree">
 
-<a href="terms.html" class="terms-link" aria-label="Terms and Conditions"></a>
+<a href="terms.html" class="terms-link"></a>
 
-<a href="#" class="connect-link" aria-label="Connect" onclick="connectNow(event)"></a>
+<a href="#" class="connect-link" onclick="connectNow(event)"></a>
 
 </div>
 
 <script>
+
 function connectNow(event){
 
-  event.preventDefault();
+event.preventDefault();
 
-  if(!document.getElementById('agree').checked){
-    alert('Please accept the Terms and Conditions.');
-    return;
-  }
+if(!document.getElementById('agree').checked){
+alert('Please accept the Terms and Conditions.');
+return;
+}
 
-  /*
-    This sends the user to the Meraki authorization URL first.
-    After Meraki authorizes internet access, the user can be redirected by the Meraki splash flow.
-  */
-  window.location.href = "$MERAKI:AUTH_AND_CONTINUE_URL$";
+window.location.href='https://yasnetworks.com';
 
 }
+
 </script>
 
 </body>
