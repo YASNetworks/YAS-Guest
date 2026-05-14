@@ -36,20 +36,28 @@ cursor:pointer;
 
 appearance:none;
 -webkit-appearance:none;
+-moz-appearance:none;
+
+outline:none;
 
 border:2px solid #ffffff;
 border-radius:4px;
-background:transparent;
+background-color:transparent;
+display:flex;
+align-items:center;
+justify-content:center;
 }
 
-.checkbox:checked::after{
-content:'✓';
+.checkbox:checked{
+background-color:transparent;
+}
+
+.checkbox:checked::before{
+content:"✓";
 color:#f3c54b;
 font-size:18px;
-position:absolute;
-left:3px;
-top:-2px;
 font-weight:bold;
+line-height:1;
 }
 /* TERMS LINK */
 .terms-link{
