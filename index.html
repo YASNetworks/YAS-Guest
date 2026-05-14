@@ -1,47 +1,104 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>YAS Networks Wi-Fi</title>
-<link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>YAS Networks Wi-Fi</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0}
+    html,body{min-height:100%;font-family:Inter,Arial,sans-serif;background:#01060b;color:#fff}
+    body{display:flex;align-items:center;justify-content:center;padding:22px;overflow:hidden}
+    body:before{
+      content:"";position:fixed;inset:0;z-index:0;
+      background:
+        radial-gradient(circle at 8% 18%,rgba(255,184,25,.95) 0 2px,transparent 3px),
+        radial-gradient(circle at 20% 14%,rgba(255,184,25,.55) 0 2px,transparent 3px),
+        radial-gradient(circle at 36% 22%,rgba(255,184,25,.75) 0 2px,transparent 3px),
+        radial-gradient(circle at 70% 10%,rgba(255,184,25,.85) 0 2px,transparent 3px),
+        radial-gradient(circle at 90% 25%,rgba(255,184,25,.55) 0 2px,transparent 3px),
+        linear-gradient(135deg,#02070d 0%,#03090f 42%,#000 100%);
+    }
+    .lines{position:fixed;inset:0;z-index:1;opacity:.42;background:
+      linear-gradient(26deg,transparent 0 12%,rgba(212,154,18,.14) 12.2% 12.5%,transparent 12.7% 100%),
+      linear-gradient(145deg,transparent 0 20%,rgba(255,191,35,.12) 20.2% 20.45%,transparent 20.7% 100%),
+      linear-gradient(75deg,transparent 0 48%,rgba(255,191,35,.12) 48.2% 48.45%,transparent 48.7% 100%);}
+    .gold-wave{position:fixed;left:-5%;right:-5%;bottom:-55px;height:245px;z-index:2;opacity:.95;
+      background:
+       radial-gradient(ellipse at 50% 100%,rgba(255,193,44,.55),transparent 55%),
+       repeating-linear-gradient(168deg,transparent 0 13px,rgba(245,172,16,.22) 14px 15px,transparent 16px 32px);
+      clip-path:polygon(0 40%,20% 55%,40% 70%,60% 38%,80% 58%,100% 45%,100% 100%,0 100%);
+    }
+    .card{position:relative;z-index:4;width:min(92vw,740px);min-height:calc(100vh - 44px);border:1px solid rgba(255,255,255,.15);border-radius:22px;background:rgba(0,0,0,.52);padding:72px 58px 26px;display:flex;flex-direction:column;box-shadow:0 22px 80px rgba(0,0,0,.45)}
+    .logo{display:block;width:min(560px,100%);height:auto;margin:0 auto 92px;object-fit:contain}
+    h1{font-size:30px;font-weight:700;margin-bottom:20px;letter-spacing:-.02em}
+    .desc{font-size:17px;line-height:1.7;color:#f1f1f1;margin-bottom:42px}
+    .agree-row{display:flex;align-items:center;justify-content:center;gap:14px;margin-bottom:28px;font-size:16px}
+    input[type=checkbox]{width:24px;height:24px;accent-color:#f6c530;cursor:pointer}
+    .agree-row a{color:#f6c530;text-decoration:none;font-weight:500}
+    .agree-row a:hover{text-decoration:underline}
+    .btn{display:block;width:min(344px,100%);margin:0 auto;border:0;border-radius:999px;padding:16px 22px;background:linear-gradient(#ffe16a,#efbc35);color:#050505;font-size:25px;font-weight:800;cursor:pointer;box-shadow:0 8px 18px rgba(226,172,34,.22)}
+    .btn:hover{filter:brightness(1.05);transform:translateY(-1px)}
+    .privacy{display:flex;align-items:center;justify-content:center;gap:10px;color:#e5e5e5;font-size:13px;margin-top:24px}
+    .footer{margin-top:auto;padding-top:70px;display:flex;justify-content:center;gap:28px;flex-wrap:wrap;color:#f2f2f2;font-size:16px}
+    .footer span{display:inline-flex;align-items:center;gap:10px}
+    @media(max-width:680px){
+      body{padding:12px}.card{min-height:calc(100vh - 24px);padding:46px 24px 22px;border-radius:18px}
+      .logo{margin-bottom:58px}.footer{padding-top:44px;font-size:13px;gap:16px}
+      h1{text-align:center;font-size:26px}.desc{text-align:center;font-size:15px}.agree-row{font-size:14px}.btn{font-size:22px}
+    }
+  </style>
 </head>
 <body>
-  <main class="page-card home-card">
-    <section class="logo-row">
-      <div class="logo-mark">✺</div>
-      <div class="logo-text">YAS NETWORKS</div>
-    </section>
+  <div class="lines"></div>
+  <div class="gold-wave"></div>
 
-    <section class="welcome-box">
-      <h1>Welcome to YAS Networks Wi-Fi</h1>
-      <p>Stay connected. Enjoy seamless and secure internet access.</p>
+  <main class="card">
+    <img class="logo" src="logo.png" alt="YAS Networks">
 
-      <label class="agree-row">
-        <input id="agree" type="checkbox" />
-        <span>I agree to the <a href="terms.html">Terms and Conditions</a></span>
-      </label>
+    <h1>Welcome to YAS Networks Wi-Fi</h1>
+    <p class="desc">Stay connected. Enjoy seamless and secure internet access.</p>
 
-      <button class="gold-btn" onclick="connectWifi()">Connect</button>
-      <p class="privacy">🔒 Your privacy and security are important to us.</p>
-    </section>
+    <div class="agree-row">
+      <input id="agree" type="checkbox" checked>
+      <label for="agree">I agree to the <a href="terms.html">Terms and Conditions</a></label>
+    </div>
 
-    <footer class="footer-row">
+    <button class="btn" onclick="connectWifi()">Connect</button>
+
+    <div class="privacy">🔒 <span>Your privacy and security are important to us.</span></div>
+
+    <div class="footer">
       <span>◎ www.yasnetworks.com</span>
-      <span>|</span>
       <span>✉ info@yasnetworks.com</span>
-    </footer>
+    </div>
   </main>
 
-<script>
-function connectWifi() {
-  const agree = document.getElementById('agree');
-  if (!agree.checked) {
-    alert('Please accept the Terms and Conditions.');
-    return;
-  }
-  window.location.href = '$MERAKI:AUTH_AND_CONTINUE_URL$';
-}
-</script>
+  <script>
+    function connectWifi(){
+      const agree = document.getElementById("agree");
+      if(!agree.checked){
+        alert("Please accept the Terms and Conditions.");
+        return;
+      }
+
+      const companyUrl = "https://www.yasnetworks.com/";
+      const merakiAuthAndContinueUrl = "$MERAKI:AUTH_AND_CONTINUE_URL$";
+
+      /*
+        For Meraki GitHub-hosted splash:
+        Keep this token. In Meraki Dashboard, set the post-login redirect/success URL to:
+        https://www.yasnetworks.com/
+      */
+
+      if (merakiAuthAndContinueUrl.indexOf("$MERAKI:") === -1) {
+        window.location.href = merakiAuthAndContinueUrl;
+      } else {
+        window.location.href = companyUrl;
+      }
+    }
+  </script>
 </body>
 </html>
