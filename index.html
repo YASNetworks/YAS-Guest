@@ -38,9 +38,7 @@ appearance:none;
 -webkit-appearance:none;
 -moz-appearance:none;
 
-background-color:#000000;
-box-shadow:0 0 0 6px #000000;
-
+background:#000000;
 border:2px solid #ffffff;
 border-radius:4px;
 
@@ -49,12 +47,25 @@ align-items:center;
 justify-content:center;
 }
 
+/* cover old box inside image */
+.checkbox::after{
+content:"";
+position:absolute;
+left:-10px;
+top:-10px;
+width:40px;
+height:40px;
+background:#000000;
+z-index:-1;
+}
+
 .checkbox:checked::before{
 content:"✓";
 color:#f3c54b;
 font-size:18px;
 font-weight:bold;
 line-height:1;
+position:absolute;
 }
 /* CONNECT BUTTON */
 .connect-link{
