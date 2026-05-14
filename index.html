@@ -29,13 +29,28 @@ display:block;
 position:absolute;
 left:28.8%;
 top:51%;
-width:30px;
-height:30px;
+width:24px;
+height:24px;
 z-index:1000;
 cursor:pointer;
-accent-color:#f3c54b;
+
+appearance:none;
+-webkit-appearance:none;
+
+border:2px solid #ffffff;
+border-radius:4px;
+background:transparent;
 }
 
+.checkbox:checked::after{
+content:'✓';
+color:#f3c54b;
+font-size:18px;
+position:absolute;
+left:3px;
+top:-2px;
+font-weight:bold;
+}
 /* TERMS LINK */
 .terms-link{
 position:absolute;
