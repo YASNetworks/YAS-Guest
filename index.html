@@ -6,7 +6,6 @@
 <title>YAS Networks Wi-Fi</title>
 
 <style>
-
 html,body{
 margin:0;
 padding:0;
@@ -26,10 +25,10 @@ display:block;
 
 .checkbox{
 position:absolute;
-left:28.9%;
-top:50.85%;
-width:24px;
-height:24px;
+left:24.7%;
+top:48.1%;
+width:5%;
+height:3.4%;
 z-index:1000;
 cursor:pointer;
 
@@ -45,33 +44,33 @@ outline:none;
 .checkbox:checked::before{
 content:"✓";
 color:#f3c54b;
-font-size:18px;
+font-size:34px;
 font-weight:bold;
 position:absolute;
-left:4px;
-top:0px;
+left:9%;
+top:-24%;
+line-height:1;
 }
 
 .terms-link{
 position:absolute;
-left:47%;
-top:51%;
-width:28%;
-height:4%;
+left:49%;
+top:48.6%;
+width:29%;
+height:3%;
 display:block;
 z-index:900;
 }
 
 .connect-link{
 position:absolute;
-left:27%;
-top:56%;
-width:46%;
-height:7%;
+left:22.7%;
+top:54.5%;
+width:55%;
+height:5.8%;
 display:block;
 z-index:900;
 }
-
 </style>
 </head>
 
@@ -79,35 +78,35 @@ z-index:900;
 
 <div class="page">
 
-<img src="Page 1.png" class="bg">
+<img src="Page 1.png" class="bg" alt="YAS Networks Wi-Fi">
 
 <input type="checkbox" class="checkbox" id="agree">
 
-<a href="terms.html" class="terms-link"></a>
+<a href="terms.html" class="terms-link" aria-label="Terms and Conditions"></a>
 
-<a href="#" class="connect-link" onclick="connectNow(event)"></a>
+<a href="#" class="connect-link" onclick="connectNow(event)" aria-label="Connect"></a>
 
 </div>
 
 <script>
 function connectNow(event){
-  event.preventDefault();
+event.preventDefault();
 
-  if(!document.getElementById('agree').checked){
-    alert('Please accept the Terms and Conditions.');
-    return;
-  }
+if(!document.getElementById('agree').checked){
+alert('Please accept the Terms and Conditions.');
+return;
+}
 
-  const params = new URLSearchParams(window.location.search);
-  const baseGrantUrl = params.get("base_grant_url");
-  const continueUrl = params.get("user_continue_url") || "https://yasnetworks.com";
+const params = new URLSearchParams(window.location.search);
+const baseGrantUrl = params.get("base_grant_url");
+const continueUrl = params.get("user_continue_url") || "https://yasnetworks.com";
 
-  if(!baseGrantUrl){
-    alert("Meraki authentication URL was not found. Please reopen this page through the Wi-Fi splash portal.");
-    return;
-  }
+if(!baseGrantUrl){
+window.location.href = "https://yasnetworks.com";
+return;
+}
 
-  window.location.href = baseGrantUrl + "?continue_url=" + encodeURIComponent(continueUrl);
+window.location.href = baseGrantUrl + "?continue_url=" + encodeURIComponent(continueUrl);
 }
 </script>
 
